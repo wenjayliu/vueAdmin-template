@@ -1,9 +1,8 @@
 import fetch from '@/utils/fetch';
 
-export function getList(params) {
+export function taskList(params) {
   return fetch({
-    // url: '/table/list',
-    url: '/login/tablelist',
+    url: '/task/Task',
     method: 'get',
     params
   });

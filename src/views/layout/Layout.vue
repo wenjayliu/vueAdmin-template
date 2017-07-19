@@ -1,10 +1,13 @@
 <template>
     <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
+            <!-- side bar  -->
         <div class="sidebar-wrapper">
             <sidebar class="sidebar-container"></sidebar>
         </div>
         <div class="main-container">
+            <!--nav bar  -->
             <navbar></navbar>
+            <!--app min  -->
             <app-main></app-main>
         </div>
     </div>
@@ -52,12 +55,25 @@
                 margin-left: 40px;
             }
         }
+        // .sidebar-wrapper {
+        //     width: 180px;
+        //     position: fixed;
+        //     left: 0;
+        //     // right: 0;
+        //     top: 0;
+        //     bottom: 0;
+        //     z-index: 1001;
+        //     overflow: hidden;
+        //     transition: all .28s ease-out;
+        // }
         .sidebar-wrapper {
-            width: 180px;
+            width: 100%;
+            height: 60px;
             position: fixed;
-            top: 0;
-            bottom: 0;
             left: 0;
+            right: 0;
+            // top: 0;
+            bottom: 0;
             z-index: 1001;
             overflow: hidden;
             transition: all .28s ease-out;
@@ -65,16 +81,17 @@
         .sidebar-container {
             transition: all .28s ease-out;
             position: absolute;
+            left: 0;
+            // right:0;
             top: 0;
             bottom: 0;
-            left: 0;
             right: -17px;
             overflow-y: scroll;
         }
         .main-container {
             min-height: 100%;
             transition: all .28s ease-out;
-            margin-left: 180px;
+            // margin-left: 180px;
         }
     }
 </style>

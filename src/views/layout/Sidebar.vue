@@ -1,5 +1,8 @@
 <template>
-    <el-menu mode="vertical" theme="dark" :default-active="$route.path">
+ <!-- mode="horizontal"  水平
+ vertical  垂直
+  -->
+    <el-menu mode="horizontal" theme="dark" :default-active="$route.path">
         <sidebar-item :routes='permission_routers'></sidebar-item>
     </el-menu>
 </template>

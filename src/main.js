@@ -25,6 +25,7 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' });
     } else {
       if (store.getters.roles.length === 0) {
+
         store.dispatch('GetInfo').then(res => {
           const roles = res.data.role;
           store.dispatch('GenerateRoutes', { roles }).then(() => {
@@ -57,3 +58,12 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+// {code: 20000,…}
+
+// code:20000
+// data:{role: ["admin"], avatar: "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",…}
+// avatar:"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"
+// name:"admin"
+// role:["admin"]
+// 0:"admin"

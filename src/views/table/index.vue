@@ -49,6 +49,7 @@
       fetchData() {
         this.listLoading = true;
         getList(this.listQuery).then(response => {
+          console.log(response)
           this.list = response.data.items;
           this.listLoading = false;
         })

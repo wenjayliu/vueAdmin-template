@@ -34,7 +34,7 @@
       name: 'login',
       data() {
         const validateEmail = (rule, value, callback) => {
-          if (!isWscnEmail(value)) {
+          if (isWscnEmail(value)) {
             callback(new Error('请输入正确的合法邮箱'));
           } else {
             callback();
@@ -72,12 +72,15 @@
                 this.loading = false;
                 
                 console.log(this)
+                // {code: 20000, data: {token: "admin"}}
+                // {code: 50000, data: "登录账号不对"}
                 this.$router.push({ path: '/' });
               }).catch(() => {
                 this.loading = false;
               });
             } else {
               console.log('error submit!!');
+
               return false;
             }
           });

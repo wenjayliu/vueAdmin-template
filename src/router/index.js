@@ -7,17 +7,20 @@ const _import = require('./_import_' + process.env.NODE_ENV);
 import Layout from '../views/layout/Layout';
 
 /* login */
-const Login = _import('login/index');
+const Login       = _import('login/index');
 
 /* dashboard */
-const dashboard = _import('dashboard/index');
+const dashboard   = _import('dashboard/index');
 
 /* error page */
-const Err404 = _import('404');
+const Err404      = _import('404');
 
 /* demo page */
-const Form = _import('page/form');
-const Table = _import('table/index');
+const Form        = _import('page/form');
+const Table       = _import('table/index');
+    // task
+const Task        = _import('task/index');
+const Task_undo   = _import('task/Task_undo');
 
 Vue.use(Router);
 
@@ -47,6 +50,8 @@ export default new Router({
   routes: constantRouterMap
 });
 
+
+// 侧边菜路由哦
 export const asyncRouterMap = [
   {
     path: '/example',
@@ -66,7 +71,21 @@ export const asyncRouterMap = [
     name: 'Table',
     icon: 'tubiaoleixingzhengchang',
     noDropdown: true,
-    children: [{ path: 'index', component: Table, name: 'Table', meta: { role: ['admin'] } }]
+    children: [
+      { path: 'index', component: Table, name: 'Table', meta: { role: ['admin'] } }
+    ]
+  },
+  {
+    path: '/task',
+    component: Layout,
+    redirect: '/task/index',
+    name: 'Task',
+    icon: 'tubiaoleixingzhengchang',
+    noDropdown: true,
+    children: [
+      { path: 'index', component: Task, name: 'Task', meta: { role: ['admin'] } },
+      { path: 'Task_undo', component: Task_undo, name: 'Task_undo', meta: { role: ['admin'] } }
+    ]
   },
 
   { path: '*', redirect: '/404', hidden: true }
